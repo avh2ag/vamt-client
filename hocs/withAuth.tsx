@@ -1,8 +1,16 @@
-import { GetServerSideProps, GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetServerSidePropsResult,
+} from 'next';
 import { parseCookies } from 'nookies';
 
-export const withAuth = <P extends {}>(gssp?: GetServerSideProps<P>): GetServerSideProps => {
-  return async (context: GetServerSidePropsContext): Promise<GetServerSidePropsResult<P>> => {
+export const withAuth = <P extends object>(
+  gssp?: GetServerSideProps<P>
+): GetServerSideProps => {
+  return async (
+    context: GetServerSidePropsContext
+  ): Promise<GetServerSidePropsResult<P>> => {
     const cookies = parseCookies(context);
     const token = cookies['token'];
 
