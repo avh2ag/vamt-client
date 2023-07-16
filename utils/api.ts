@@ -3,7 +3,7 @@ import { parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8000/', // Change this to your Django server's URL
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
 api.interceptors.request.use((config) => {
