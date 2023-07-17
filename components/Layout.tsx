@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useAuthentication } from '../hooks/useAuthentication';
+import { useAuthentication } from '@/hooks/useAuthentication';
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import { logout } from '../utils/token';
+import { logout } from '@/utils/token';
 
 type Props = {
   children?: ReactNode;

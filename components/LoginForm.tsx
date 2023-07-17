@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { login } from '../utils/token';
+import { login } from '@/utils/token';
 
 const LoginForm: React.FC = () => {
   const [username, setUsername] = useState('');

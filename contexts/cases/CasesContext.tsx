@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import api from '../../utils/api';
-import { Case, CasesContextData } from '../../types/cases';
+import api from '@/utils/api';
+import { Case, CasesContextData } from '@/types/cases';
 
 export const CasesContext = createContext<CasesContextData>({
   cases: [],

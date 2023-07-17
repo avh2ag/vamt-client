@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { CasesContext } from '../../contexts/cases/CasesContext';
-import { Case } from '../../types/cases';
+import { CasesContext } from '@/contexts/cases/CasesContext';
+import { Case } from '@/types/cases';
 import Link from 'next/link';
 
 const CaseList: React.FC = () => {

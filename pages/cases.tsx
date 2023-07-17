@@ -1,8 +1,8 @@
 import { GetServerSideProps } from 'next';
-import { withAuth } from '../hocs/withAuth';
-import { CasesProvider } from '../contexts/cases/CasesContext';
-import CaseList from '../components/cases/CaseList';
-import Layout from '../components/Layout';
+import { withAuth } from '@/hocs/withAuth';
+import { CasesProvider } from '@/contexts/cases/CasesContext';
+import CaseList from '@/components/cases/CaseList';
+import Layout from '@/components/Layout';
 
 const CasesPage = () => {
   return (

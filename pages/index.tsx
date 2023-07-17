@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Layout from '../components/Layout';
-import { withAuth } from '../hocs/withAuth';
+import Layout from '@/components/Layout';
+import { withAuth } from '@/hocs/withAuth';
 import { GetServerSideProps } from 'next';
 
 const IndexPage = () => (
