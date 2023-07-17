@@ -1,7 +1,7 @@
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { parseCookies } from 'nookies';
+import { useAuthentication } from '../hooks/useAuthentication';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { logout } from '../utils/token';
 
@@ -19,16 +19,7 @@ const Layout = ({ children, title = 'VAMT Datalab' }: Props) => {
     router.push('/login');
   };
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const checkLogin = async () => {
-      const { token } = await parseCookies(); // Or however you get your token
-      setIsLoggedIn(!!token);
-    };
-
-    checkLogin();
-  }, []);
+  const isLoggedIn = useAuthentication();
 
   return (
     <>
