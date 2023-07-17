@@ -33,9 +33,12 @@ const Layout = ({ children, title = 'VAMT Datalab' }: Props) => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/">Home</Nav.Link>
             {isLoggedIn ? (
-              <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+              <>
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/cases">Cases</Nav.Link>
+                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+              </>
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>
             )}
