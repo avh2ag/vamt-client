@@ -45,7 +45,7 @@ const Layout = ({ children, title = 'VAMT Datalab' }: Props) => {
           </Nav>
         </Navbar.Collapse>{' '}
       </Navbar>
-      <Container>{children}</Container>
+      <Container style={{ paddingTop: '2rem' }}>{children}</Container>
       <footer className="footer mt-auto py-3 bg-light">
         <Container>
           <span className="text-muted">Footer</span>

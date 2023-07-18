@@ -13,17 +13,13 @@ const CaseList: React.FC = () => {
           <Card>
             <Accordion.Header
               as={Card.Header}
-              eventKey="0"
+              eventkey="0"
               className="bg-white"
             >
               <>
                 <Badge
                   pill
-                  bg={
-                    caseData.type.toLowerCase() === 'civil'
-                      ? 'primary'
-                      : 'danger'
-                  }
+                  bg={caseData.type.toLowerCase() === 'civil' ? 'info' : 'dark'}
                   className="ms-2 me-4 text-uppercase"
                 >
                   {caseData.type}
