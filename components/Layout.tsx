@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { useAuthentication } from '@/hooks/useAuthentication';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { logout } from '@/utils/token';
@@ -11,12 +10,9 @@ type Props = {
 };
 
 const Layout = ({ children, title = 'VAMT Datalab' }: Props) => {
-  const router = useRouter();
-
   const handleLogout = () => {
     // Delete the cookie and redirect to login page
     logout();
-    router.push('/login');
   };
 
   const isLoggedIn = useAuthentication();

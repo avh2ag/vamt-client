@@ -1,4 +1,5 @@
 import { setCookie, destroyCookie } from 'nookies';
+import Router from 'next/router';
 import api from './api';
 
 export const login = async (username: string, password: string) => {
@@ -9,4 +10,5 @@ export const login = async (username: string, password: string) => {
 
 export const logout = () => {
   destroyCookie(null, 'token');
+  Router.push('/login');
 };
