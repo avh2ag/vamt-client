@@ -1,7 +1,7 @@
 export interface Case {
   id: string;
   name: string;
-  year: string;
+  year: number;
   type: 'Civil' | 'Criminal';
 }
 

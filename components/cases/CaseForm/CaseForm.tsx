@@ -8,9 +8,10 @@ import { Case } from '@/types/cases';
 
 export interface CaseFormProps {
   onSubmitSuccess: (caseData: Case) => void;
+  caseToEdit?: Case;
 }
 
-const CaseForm: React.FC<CaseFormProps> = ({ onSubmitSuccess }) => {
+const CaseForm: React.FC<CaseFormProps> = ({ onSubmitSuccess, caseToEdit }) => {
   const schema = yup.object().shape({
     name: yup.string().required('Name is a required field'),
     year: yup
@@ -34,6 +35,7 @@ const CaseForm: React.FC<CaseFormProps> = ({ onSubmitSuccess }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
+    defaultValues: caseToEdit,
     resolver: yupResolver(schema),
   });
 
