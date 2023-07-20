@@ -17,7 +17,7 @@ const CaseForm: React.FC<CaseFormProps> = ({ onSubmitSuccess, caseToEdit }) => {
     year: yup
       .number()
       .transform((value, originalValue) => {
-        return originalValue.trim() === '' ? undefined : value;
+        return String(originalValue).trim() === '' ? undefined : value;
       })
       .required('Year is a required field')
       .test(
@@ -33,32 +33,38 @@ const CaseForm: React.FC<CaseFormProps> = ({ onSubmitSuccess, caseToEdit }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     defaultValues: caseToEdit,
     resolver: yupResolver(schema),
+    mode: 'onChange',
   });
 
   const onSubmit = (caseData) => {
     onSubmitSuccess(caseData);
   };
+
+  const onError = (e) => {
+    // @TODO: handle the form error
+    console.log(e);
+  };
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit, onError)}>
       <Form.Group className="mb-3">
-        <Form.Label>Case Name</Form.Label>
-        <Form.Control {...register('name')} />
+        <Form.Label htmlFor="name">Case Name</Form.Label>
+        <Form.Control id="name" {...register('name')} />
         {errors.name && <p className="text-danger">{errors.name.message}</p>}
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Year</Form.Label>
-        <Form.Control type="number" {...register('year')} />
+        <Form.Label htmlFor="year">Year</Form.Label>
+        <Form.Control id="year" type="number" {...register('year')} />
         {errors.year && <p className="text-danger">{errors.year.message}</p>}
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label>Type</Form.Label>
-        <Form.Control as="select" {...register('type')}>
+        <Form.Label htmlFor="type">Type</Form.Label>
+        <Form.Control id="type" as="select" {...register('type')}>
           <option value="" disabled>
             Select...
           </option>
@@ -68,7 +74,7 @@ const CaseForm: React.FC<CaseFormProps> = ({ onSubmitSuccess, caseToEdit }) => {
         {errors.type && <p className="text-danger">{errors.type.message}</p>}
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" disabled={!isValid}>
         Submit
       </Button>
     </Form>

@@ -6,8 +6,8 @@ import { Case } from '@/types/cases';
 
 // mock cases data
 const mockCases: Case[] = [
-  { id: '1', name: 'Case 1', year: 2000, type: 'Civil' },
-  { id: '2', name: 'Case 2', year: 2001, type: 'Criminal' },
+  { id: 1, name: 'Case 1', year: 2000, type: 'Civil' },
+  { id: 2, name: 'Case 2', year: 2001, type: 'Criminal' },
 ];
 
 describe('CaseList', () => {
