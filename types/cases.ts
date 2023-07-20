@@ -8,4 +8,5 @@ export interface Case {
 export interface CasesContextData {
   cases: Case[];
   loading: boolean;
+  reload: () => void;
 }
