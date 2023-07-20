@@ -9,6 +9,7 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const cookies = parseCookies();
   const token = cookies['token'];
+  config.headers['Content-Type'] = 'application/json';
   config.headers.Authorization = token ? `Bearer ${token}` : '';
   return config;
 });

@@ -8,14 +8,21 @@ import { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { Button, Modal } from 'react-bootstrap';
 import { Case } from '@/types/cases';
+import { useCreateCase } from '@/hooks/useCreateCase';
 
 const CasesPage = () => {
   const [showModal, setShowModal] = useState(false);
+  const { createCase } = useCreateCase();
 
   const handleShowModal = () => setShowModal(true);
-  const createCase = (caseData: Case) => {
-    console.log(caseData);
-    setShowModal(false);
+  const onCaseFormSubmit = async (caseData: Case) => {
+    try {
+      await createCase(caseData);
+      setShowModal(false); // Close the modal if the case creation was successful
+    } catch (error) {
+      // Handle the error, for example show an error message
+      console.error(error);
+    }
   };
 
   return (
@@ -40,7 +47,7 @@ const CasesPage = () => {
           <Modal.Title>Add Case</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <CaseForm onSubmitSuccess={createCase} />
+          <CaseForm onSubmitSuccess={onCaseFormSubmit} />
         </Modal.Body>
       </Modal>
     </CasesProvider>
