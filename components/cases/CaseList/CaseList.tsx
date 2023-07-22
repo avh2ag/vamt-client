@@ -1,11 +1,19 @@
 import React, { useContext } from 'react';
 import { CasesContext } from '@/contexts/cases/CasesContext';
 import { Case } from '@/types/cases';
-import { Accordion, Card, Badge } from 'react-bootstrap';
+import { Accordion, Card, Badge, Spinner } from 'react-bootstrap';
 import Link from 'next/link';
 
 const CaseList: React.FC = () => {
-  const { cases } = useContext(CasesContext);
+  const { cases, loading } = useContext(CasesContext);
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" />
+      </div>
+    );
+  }
   return (
     <>
       {cases.map((caseData: Case) => (
