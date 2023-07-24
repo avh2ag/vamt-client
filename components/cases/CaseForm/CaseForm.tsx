@@ -46,7 +46,7 @@ const CaseForm: React.FC<CaseFormProps> = ({ onSubmitSuccess, caseToEdit }) => {
 
   const onError = (e) => {
     // @TODO: handle the form error
-    console.log(e);
+    console.error(e);
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>

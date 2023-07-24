@@ -33,6 +33,7 @@ const Layout = ({ children, title = 'VAMT Datalab' }: Props) => {
               <>
                 <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/cases">Cases</Nav.Link>
+                <Nav.Link href="/competitors">Competitors</Nav.Link>
                 <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
               </>
             ) : (

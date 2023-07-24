@@ -39,6 +39,6 @@ describe('CasesProvider', () => {
       );
     });
     expect(container.textContent).toBe('Loaded');
-    expect(api.get).toHaveBeenCalledWith('/cases'); // validate the endpoint used
+    expect(api.get).toHaveBeenCalledWith('/cases/'); // validate the endpoint used
   });
 });

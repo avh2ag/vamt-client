@@ -5,7 +5,7 @@ import { Accordion, Card, Badge, Spinner } from 'react-bootstrap';
 import Link from 'next/link';
 
 const CaseList: React.FC = () => {
-  const { cases, loading } = useContext(CasesContext);
+  const { data: cases, loading } = useContext(CasesContext);
 
   if (loading) {
     return (
@@ -16,7 +16,7 @@ const CaseList: React.FC = () => {
   }
   return (
     <>
-      {cases.map((caseData: Case) => (
+      {cases?.map((caseData: Case) => (
         <Accordion defaultActiveKey="0" key={caseData.id}>
           <Card>
             <Accordion.Header

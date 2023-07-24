@@ -20,7 +20,7 @@ describe('CaseList', () => {
 
   test('renders case name with year', async () => {
     const { getByText } = customRender(<CaseList />, {
-      providerProps: { value: { cases: mockCases, loading: false } },
+      providerProps: { value: { data: mockCases, loading: false } },
     });
 
     await waitFor(() => {
